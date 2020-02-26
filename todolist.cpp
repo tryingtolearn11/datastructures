@@ -1,7 +1,4 @@
 
-
-
-
 #include <vector>
 using std::vector;
 #include <iostream>
@@ -137,3 +134,5 @@ for (size_t i=0; i<world.size();i++){
 
 
 
+=======
+>>>>>>> 0659b86064653d595734b339b28cea0ca1d9da9d
