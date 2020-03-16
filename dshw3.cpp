@@ -3,15 +3,14 @@ using std::cin;
 using std::cout;
 
 struct node {
-	int data; /* value of node */
-	node* next; /* pointer to the next element */
+	int data;
+	node* next;
 };
 
 void printList(node* L)
 {
-	node* p = L; /* p points to current node to be printed. */
+	node* p = L;
 	while (p != NULL) {
-		/* print data at p; update p to next node to be printed. */
 		cout << p->data << " ";
 		p = p->next;
 	}
@@ -33,35 +32,32 @@ void removeDuplicate(node*& L)
 	}
 }
 
-}
+
 
 int main()
 {
-	int x; /* holds input. */
-	node* L = NULL; /* pointer to beginning of list */
+	int x; //take input
+	node* L = NULL;
 	while (cin >> x) {
-		/* find where n goes: */
-		node* q = L; /* looks for first value larger than x */
-		node* p = NULL; /* p points to node before q */
+		//search for spot
+		node* q = L; //q looks ahead
+		node* p = NULL; // looks behind x
 		while (q != NULL && q->data < x) {
-			/* advance q,p */
 			p = q;
 			q = q->next;
 		}
-		/* now add new node between p and q: */
+		//we found, now add
 		node* n = new node;
 		n->data = x;
 		n->next = q;
-		if (p == NULL) { /* x goes at very beginning. */
+		if (p == NULL) {  //if list empty, add to the start
 			L = n;
-		} else { /* not at very beginning */
+		} else {
 			p->next = n;
 		}
 	}
-	printList(L);
+	//printList(L);
 	removeDuplicate(L);
-	//cout << "trying to remove 7...\n";
-	//remove(L,7);
 	printList(L);
 	return 0;
 }
